@@ -7,5 +7,8 @@ const dustbinSchema = new mongoose.Schema({
     quantity:{
         type:Number,
         required:true,
+        default:0
     }
 })
+const Dustbin = mongoose.model('Dustbin',dustbinSchema)
+module.exports = Dustbin
