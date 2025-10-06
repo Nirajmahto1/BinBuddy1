@@ -1,12 +1,16 @@
 const mongoose = require('mongoose')
 const dustbinSchema = new mongoose.Schema({
+    idN:{
+        type:Number,
+        required:true,
+        unique:true
+    },
     location:{
         type:[Number],
         required:true,
     },
-    quantity:{
+    level:{
         type:Number,
-        required:true,
         default:0
     }
 })
