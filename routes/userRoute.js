@@ -13,7 +13,11 @@ router.post('/signup',async (req,res)=>{
     if(isUser || isUser1) return res.status(500).json({message:"User already Exists"})
     const user = new User(data)
     const result = await user.save()
-    res.status(200).json({message:"Signup Successful"})
+    const payload = {
+            id:result.id
+        }
+        const token = generateToken(payload)
+    res.status(200).json({message:"Signup Successful",token:token})
     }catch(err){
        
         res.status(500).json({message:"Internal Server Error"})

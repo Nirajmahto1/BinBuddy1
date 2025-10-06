@@ -6,5 +6,7 @@ require('dotenv').config()
 app.use(bodyParser.json())
 const Port = process.env.PORT || 3000;
 const userRoute = require('./routes/userRoute')
+const dustbinRoute = require('./routes/dustbinRoute')
 app.use('/user',userRoute)
+app.use('/dustbin',dustbinRoute)
 app.listen(Port)
