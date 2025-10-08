@@ -28,7 +28,8 @@ const driverSchema = new mongoose.Schema({
     },
     document:{
         type:String,
-        required:true
+        required:true,
+        unique:true
     }
 
 })

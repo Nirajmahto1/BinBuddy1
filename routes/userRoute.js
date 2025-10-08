@@ -67,12 +67,12 @@ router.get('/reports',jwtAuth,async (req,resp)=>{
    
     const userId = req.user.id
     const reports = await User.findById(userId)
-    res.status(200).send(reports)
+    res.status(200).send(reports.reports)
     }catch(err){
         res.status(500).json({message:"Internal Server Error"})
     }
 })
-router.post('/reports/:dustbinID',jwtAuth,async (req,res)=>{
+router.post('/report/:dustbinID',jwtAuth,async (req,res)=>{
     try{
         const dustbinId = req.params.dustbinID
         const dustbin = await Dustbin.findById(dustbinId)
